@@ -33,5 +33,5 @@ section.name h3{
     <h2>
       Urban
     </h2>
-    <h3>eNaira Ussd Wallet Demo</h3>
+    <h3>e₦aira Ussd Wallet Demo.</h3>
 </section>

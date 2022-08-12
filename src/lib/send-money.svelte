@@ -119,14 +119,14 @@ a {
 <section class="container">
     <section class="division">
         <section class="name">
-            <h2>Please Choose One Option</h2>
+            <h2>Please Choose One Option.</h2>
         </section>
     </section>
     <section class="body">
         <ul>
             <li>
                 <a class="bar" href="/">
-                    1> eNaira Wallet
+                    1> e₦aira Wallet
                 </a>
             </li>
             <li>

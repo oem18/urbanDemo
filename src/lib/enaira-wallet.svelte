@@ -3,9 +3,9 @@ import { goto } from '$app/navigation';
 import Code from "./code.svelte";
 let value = "";
 async function Switch(event) {
-    console.log("Message", event.detail.text);
+    // console.log("Message", event.detail.text);
     if(value == "00") await goto("/welcome");
-    else if(value == "1") await goto("/enaira-wallet");
+    else if(value.length == 7) await goto("/amount");
 }
 
 </script>
@@ -119,7 +119,7 @@ a {
 <section class="container">
     <section class="division">
         <section class="name">
-            <h2>Please enter recipients 7-digit wallet ID</h2>
+            <h2>Please enter recipients 7-digit wallet ID.</h2>
         </section>
     </section>
     <section class="body">

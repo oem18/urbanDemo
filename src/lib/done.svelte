@@ -1,12 +1,11 @@
 <script>
 import { goto } from '$app/navigation';
 import Code from "./code.svelte";
-
+import Header from './header.svelte';
 let value = "";
-
 async function Switch(event) {
     // console.log("Message", event.detail.text);
-    if(value == "1" || value == 1) await goto("/send-money");
+    if(value == "00") await goto("/welcome");
 }
 
 </script>
@@ -30,7 +29,7 @@ section.division {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    height: 70px;
+    min-height: 70px;
     width: 100%;
 }
 
@@ -119,35 +118,18 @@ a {
 </style>
 <section class="container">
     <section class="division">
-        <section class="name">
-            <h2>Welcome.</h2>
-        </section>
+        <Header />
     </section>
     <section class="body">
         <ul>
             <li>
-              <a class="bar" href="/">
-                  1> Send Money
-              </a>
-            </li>
-            <li>
-              <a class="bar" href="/market">
-                  2> Make Payment
-              </a>
-            </li>
-            <li>
-                <a class="bar" href="/market">
-                    3> Check Balance
+                <a class="bar" href="/">
+                    Funds Successfully Sent to Ade Garba.
                 </a>
             </li>
             <li>
-                <a class="bar" href="/market">
-                    4> Wallet ID
-                </a>
-            </li>
-            <li>
-                <a class="bar" href="/market">
-                    4> Change Pin
+                <a class="bar" href="/">
+                    00> Done
                 </a>
             </li>
         </ul>
