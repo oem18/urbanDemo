@@ -5,9 +5,8 @@ import Code from "./code.svelte";
 let value = "1";
 
 async function Switch(event) {
-    console.log("Message", event.detail.text);
-    if(value == "1") await goto("/send-money");
-    else await goto("/welcome");
+    // console.log("Message", event.detail.text);
+    if(value == "1" || value == 1) await goto("/send-money");
 }
 
 </script>
