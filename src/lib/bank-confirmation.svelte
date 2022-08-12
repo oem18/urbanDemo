@@ -1,13 +1,19 @@
 <script>
 import { goto } from '$app/navigation';
+import { onMount } from 'svelte';
 import Code from "./code.svelte";
 let value = "";
 async function Switch(event) {
-    console.log("Message", event.detail.text);
+    // console.log("Message", event.detail.text);
     if(value == "00") await goto("/welcome");
-    else if(value == "1") await goto("/enaira-wallet");
-    else if(value == "2") await goto("/bank");
+    else if(value.length == 4) await goto("/done");
 }
+
+let amount = 1;
+
+onMount(()=>{
+    amount = localStorage.getItem("bank_amount") ? localStorage.getItem("bank_amount") : 1;
+});
 
 </script>
 <style>
@@ -30,7 +36,7 @@ section.division {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    height: 70px;
+    min-height: 70px;
     width: 100%;
 }
 
@@ -120,23 +126,18 @@ a {
 <section class="container">
     <section class="division">
         <section class="name">
-            <h2>Please Choose One Option.</h2>
+            <h2>You are about to transfer ₦{amount} to Ade Garba.</h2>
         </section>
     </section>
     <section class="body">
         <ul>
             <li>
                 <a class="bar" href="/">
-                    1> e₦aira Wallet
+                    Please enter your 4-digit PIN code.
                 </a>
             </li>
             <li>
-                <a class="bar" href="/market">
-                    2> Bank Account
-                </a>
-            </li>
-            <li>
-                <a class="bar" href="/market">
+                <a class="bar" href="/">
                     00> Back to main menu
                 </a>
             </li>

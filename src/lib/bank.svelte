@@ -3,10 +3,13 @@ import { goto } from '$app/navigation';
 import Code from "./code.svelte";
 let value = "";
 async function Switch(event) {
-    console.log("Message", event.detail.text);
+    const banks = ["access bank", "uba", "zenith bank", "polaris"];
+    console.log("Message", banks[value]);
     if(value == "00") await goto("/welcome");
-    else if(value == "1") await goto("/enaira-wallet");
-    else if(value == "2") await goto("/bank");
+    else if(value.length > 0 && banks[value].match(/[a-z]+/)) {
+        localStorage.setItem("bank", banks[value]);
+        await goto("/bank-amount");
+    }
 }
 
 </script>
@@ -30,7 +33,7 @@ section.division {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    height: 70px;
+    min-height: 70px;
     width: 100%;
 }
 
@@ -120,24 +123,34 @@ a {
 <section class="container">
     <section class="division">
         <section class="name">
-            <h2>Please Choose One Option.</h2>
+            <h2>Choose banks name.</h2>
         </section>
     </section>
     <section class="body">
         <ul>
             <li>
                 <a class="bar" href="/">
-                    1> e₦aira Wallet
+                    1> Access Bank.
                 </a>
             </li>
             <li>
-                <a class="bar" href="/market">
-                    2> Bank Account
+                <a class="bar" href="/">
+                    2> Uba.
                 </a>
             </li>
             <li>
-                <a class="bar" href="/market">
-                    00> Back to main menu
+                <a class="bar" href="/">
+                    3> Zenith Bank.
+                </a>
+            </li>
+            <li>
+                <a class="bar" href="/">
+                    4> Polaris Bank.
+                </a>
+            </li>
+            <li>
+                <a class="bar" href="/">
+                    00> Back to main menu.
                 </a>
             </li>
         </ul>

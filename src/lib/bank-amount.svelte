@@ -3,10 +3,12 @@ import { goto } from '$app/navigation';
 import Code from "./code.svelte";
 let value = "";
 async function Switch(event) {
-    console.log("Message", event.detail.text);
+    // console.log("Message", event.detail.text);
     if(value == "00") await goto("/welcome");
-    else if(value == "1") await goto("/enaira-wallet");
-    else if(value == "2") await goto("/bank");
+    else if(value.length > 0 && value.match(/[0-9]+/)) {
+        localStorage.setItem("bank_amount", value);
+        await goto("/confirmation");
+    }
 }
 
 </script>
@@ -30,7 +32,7 @@ section.division {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    height: 70px;
+    min-height: 70px;
     width: 100%;
 }
 
@@ -120,23 +122,13 @@ a {
 <section class="container">
     <section class="division">
         <section class="name">
-            <h2>Please Choose One Option.</h2>
+            <h2>Please enter the amount you want to send.</h2>
         </section>
     </section>
     <section class="body">
         <ul>
             <li>
                 <a class="bar" href="/">
-                    1> e₦aira Wallet
-                </a>
-            </li>
-            <li>
-                <a class="bar" href="/market">
-                    2> Bank Account
-                </a>
-            </li>
-            <li>
-                <a class="bar" href="/market">
                     00> Back to main menu
                 </a>
             </li>
