@@ -1,13 +1,11 @@
 <script>
 import { goto } from '$app/navigation';
 import Code from "./code.svelte";
-
-let value = "1";
-
+let value = "";
 async function Switch(event) {
     console.log("Message", event.detail.text);
-    if(value == "1") await goto("/send-money");
-    else await goto("/welcome");
+    if(value == "00") await goto("/welcome");
+    else if(value == "1") await goto("/enaira-wallet");
 }
 
 </script>
@@ -31,7 +29,7 @@ section.division {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    height: 70px;
+    min-height: 70px;
     width: 100%;
 }
 
@@ -121,34 +119,14 @@ a {
 <section class="container">
     <section class="division">
         <section class="name">
-            <h2>Welcome</h2>
+            <h2>Please enter recipients 7-digit wallet ID</h2>
         </section>
     </section>
     <section class="body">
         <ul>
             <li>
-              <a class="bar" href="/">
-                  1> Send Money
-              </a>
-            </li>
-            <li>
-              <a class="bar" href="/market">
-                  2> Make Payment
-              </a>
-            </li>
-            <li>
-                <a class="bar" href="/market">
-                    3> Check Balance
-                </a>
-            </li>
-            <li>
-                <a class="bar" href="/market">
-                    4> Wallet ID
-                </a>
-            </li>
-            <li>
-                <a class="bar" href="/market">
-                    4> Change Pin
+                <a class="bar" href="/">
+                    00> Back to main menu
                 </a>
             </li>
         </ul>

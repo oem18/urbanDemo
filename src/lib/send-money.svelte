@@ -1,10 +1,11 @@
 <script>
 import { goto } from '$app/navigation';
 import Code from "./code.svelte";
-
+let value = "";
 async function Switch(event) {
     console.log("Message", event.detail.text);
-    await goto("/welcome");
+    if(value == "00") await goto("/welcome");
+    else if(value == "1") await goto("/enaira-wallet");
 }
 
 </script>
@@ -125,35 +126,25 @@ a {
         <ul>
             <li>
                 <a class="bar" href="/">
-                    1> Send Money
+                    1> eNaira Wallet
                 </a>
             </li>
             <li>
                 <a class="bar" href="/market">
-                    2> Make Payment
+                    2> Bank Account
                 </a>
             </li>
             <li>
                 <a class="bar" href="/market">
-                    3> Check Balance
-                </a>
-            </li>
-            <li>
-                <a class="bar" href="/market">
-                    4> Wallet ID
-                </a>
-            </li>
-            <li>
-                <a class="bar" href="/market">
-                    4> Change Pin
+                    00> Back to main menu
                 </a>
             </li>
         </ul>
         <section class="search">
-            <input type="text" placeholder="">
+            <input bind:value type="text" placeholder="">
         </section>
     </section>
     <section class="division">
-        <Code on:message={Switch} code={"Next"} />
+        <Code on:message={Switch} code={"Send"} />
     </section>
 </section>
