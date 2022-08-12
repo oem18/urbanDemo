@@ -65,25 +65,6 @@ input {
     padding: 0;
 }
 
-section.name {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    height: 100%;
-    padding: 15px 0;
-}
-
-section.name h2 {
-    margin: 0;
-    color: #1c1c1c;
-    color: #2a2c2d;
-    color: #049d02;
-    font-weight: 900;
-    font-size: 1.8rem;
-}
-
 ul {
     display: flex;
     flex-flow: column nowrap;

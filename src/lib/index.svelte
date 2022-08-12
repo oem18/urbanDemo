@@ -3,9 +3,10 @@ import { goto } from '$app/navigation';
 import Code from "./code.svelte";
 import Header from "./header.svelte";
 
+let value = ""
 async function Switch(event) {
-    console.log("Message", event.detail.text);
-    await goto("/welcome");
+    // console.log("Message", event.detail.text);
+    if(value == "*123#") await goto("/welcome");
 }
 
 </script>
@@ -71,7 +72,7 @@ input {
     </section>
 <section class="body">
     <section class="search">
-        <input type="text" placeholder="*123#">
+        <input bind:value type="text" placeholder="*123#">
     </section>
 </section>
     <section class="division">
